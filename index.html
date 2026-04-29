@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山崎家の守り神からの挑戦状</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="mamo-bg-overlay"></div>
+
+    <div id="app-container">
+        <header class="game-header">
+            <div class="stats-badge">
+                <span class="label">現在の 💎 やまポ:</span>
+                <span id="current-points">0</span>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section id="start-screen" class="screen active">
+                <div class="content-card scrollable central-align">
+                    <h1>🥰山崎家の守り神からの挑戦状🥰</h1>
+                    <div class="mamo-image-container">
+                        <img src="mamo_start.png" alt="マモちゃん" class="mamo-img">
+                    </div>
+                    <div class="intro-text">
+                        <p>こんにちは、私のことを2人は知っているはずです。</p>
+                        <p>私の名前を‥‥ 2人で声を合わせて呼んでください。‥‥ せーの‥‥</p>
+                        <p class="highlight">『🌞マモちゃん🌞』</p>
+                        <p>２人とも、本当に私の名前を呼んでくれましたか？</p>
+                        <p>みのりちゃんが、山崎家に初めてお泊まりに来てくれたのが2024年の9月でした。</p>
+                        <p>あれから約2年がたって2人はたくさんのことができるようになったと思います。</p>
+                        <p>そんな2人にマモちゃんからの挑戦状です!</p>
+                        <p>これから2人に4つのマモチャレを出します。</p>
+                        <p>成功することが出来れば、その成績に応じて、あの懐かしの‥‥そう‥‥</p>
+                        <p class="highlight">『やまポ』</p>
+                        <p>をゲットすることができます！！</p>
+                        <p>「やまポ」とは、<br>
+                        <span class="full-name">「ヤマザキケノマモリガミマモチャンカラノチョウセンヲミゴトニセイコウサセタトキニモラエルヒジョウニアリガタイポイント」</span></p>
+                        <p>もちろん、やまポの獲得数に応じて豪華プレゼントを準備していますいるので、頑張って多くのやまポをゲットしてください！！！</p>
+                        <p>さぁ、チャレンジの始まりです！</p>
+                    </div>
+                    <button class="primary-btn" onclick="Game.start()">チャレンジをはじめる！</button>
+                    <p>※このページから先で、画面がリセットされてしまったら、改めて入力をし直してください※</p>
+                </div>
+            </section>
+
+            <section id="quiz-screen" class="screen">
+                <div class="content-card scrollable central-align">
+                    <div class="step-counter">マモチャレ <span id="current-step-num">1</span> / 4</div>
+                    <h2 id="quest-title">クエストタイトル</h2>
+                    
+                    <div class="quest-image-container">
+                        <img id="quest-image" src="" alt="チャレンジ画像">
+                    </div>
+
+                    <div id="map-link-container" style="display:none; margin-bottom: 15px;">
+                        <button id="dynamic-map-btn" class="map-btn" onclick="Game.openGoogleMaps()">🗺️ 行き方を調べる</button>
+                    </div>
+
+                    <div id="quest-hint" class="hint-box"></div>
+                    
+                    <div class="input-area">
+                        <p id="input-label-text" class="input-label">入力してください</p>
+                        <input type="number" id="answer-input" placeholder="すうじを入力">
+                        <button class="check-btn" onclick="Game.checkAnswer()">チャレンジ報告！</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="result-screen" class="screen">
+                <div class="content-card central-align">
+                    <h2 class="success-title">✨ お疲れ様！ ✨</h2>
+                    <p id="result-message">ミッション完了！</p>
+                    <div class="get-points-box">
+                        <p>いまもらった「やまポ」</p>
+                        <div id="earned-points" class="earned-score">+0</div>
+                    </div>
+                    <button class="primary-btn" onclick="Game.nextQuest()">次のチャレンジへ</button>
+                </div>
+            </section>
+
+            <section id="goal-screen" class="screen">
+                <div class="content-card scrollable central-align">
+                    <h1>🎉 完全クリア！ 🎉</h1>
+                    <div class="ending-message" style="text-align: left;">
+                        <p>完全クリアおめでとう！！</p>
+                        <p>これにて「山崎家の守り神からの挑戦状」は終了となります。</p>
+                        <p>小学校5年生になって、できることが増えたお２人にとって、簡単なマモチャレでしたか？？それとも、意外と難しかったかな？？</p>
+                        <p>今回は２年前の1回目に引き続き２回目の「山崎家の守り神からの挑戦状」でしたが、是非３回目があるように、朱莉ちゃんと みのりちゃん、いつまでも仲良くしてくださいね！！！</p>
+                        <p>それでは、マモちゃんとは しばらくお別れです。</p>
+                        <p>それではまたね！！！！！！</p>
+                        
+                        <div class="spacer-large"></div>
+
+                        <p class="highlight-small">あれ？</p>
+                        <p>何かを忘れてはいないかって？？</p>
+                        <p>わかっていますよ！！冗談ですよ！！！</p>
+                        <p>それでは、下のボタンを押して、ポイント換算表を確認して賞品をゲットしてください！！</p>
+                    </div>
+                    <button class="primary-btn" onclick="Game.showFinalPrize()">🎁景品を確認する！🎁</button>
+                </div>
+            </section>
+
+            <section id="prize-screen" class="screen">
+                <div class="content-card scrollable central-align">
+                    <h2 class="success-title">🎁 やまポ景品換算表 🎁</h2>
+                    <div class="mamo-image-container">
+                        <img src="mamo_prize.png" alt="おめでとう" class="mamo-img">
+                    </div>
+                    <div class="final-result">
+                        <p>今回の獲得ポイント</p>
+                        <div id="final-points" class="final-score">0</div>
+                        <p>💎 やまポ</p>
+                    </div>
+                    <div class="prize-table">
+                        <table>
+                            <tr class="rank-gold"><th>800pt</th><td>🏖️沖縄旅行🏖️</td></tr>
+                            <tr class="rank-silver"><th>500〜700pt</th><td>🛝遊園地（西武園）🛝</td></tr>
+                            <tr class="rank-bronze"><th>200〜400pt</th><td>🍽️好きなご飯やさん🍽️</td></tr>
+                            <tr class="rank-normal"><th>100pt</th><td>👏マモちゃんのメイドの温かい拍手👏</td></tr>
+                        </table>
+                    </div>
+                    <p class="footer-msg">👆山崎家の人にこの画面を見せてね👆</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

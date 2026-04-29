@@ -1,0 +1,103 @@
+:root {
+    --primary-color: #ff9f43;
+    --secondary-color: #4ecdc4;
+    --bg-color: #fef9e7;
+    --text-color: #5d4037;
+    --card-bg: rgba(255, 255, 255, 0.92);
+}
+
+body {
+    font-family: 'Kiwi Maru', serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    min-height: 100vh;
+}
+
+.mamo-bg-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('mamo_bg.png');
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    background-size: contain;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#app-container { max-width: 500px; margin: 0 auto; position: relative; }
+.central-align { text-align: center; }
+
+.game-header {
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.screen { display: none; padding: 20px; animation: fadeIn 0.4s ease; }
+.screen.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.content-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    backdrop-filter: blur(2px);
+}
+
+.scrollable { max-height: 85vh; overflow-y: auto; padding-bottom: 30px; }
+
+.mamo-image-container, .quest-image-container { width: 100%; margin: 15px 0; text-align: center; }
+.mamo-img, #quest-image {
+    max-width: 100%; max-height: 250px; height: auto;
+    border-radius: 18px; border: 4px solid #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hint-box {
+    text-align: left;
+    white-space: pre-wrap;
+    background: rgba(255, 249, 240, 0.8);
+    padding: 18px;
+    border-radius: 15px;
+    border-left: 6px solid var(--primary-color);
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.highlight { font-size: 1.6rem; color: #d35400; font-weight: bold; margin: 15px 0; }
+.highlight-small { font-size: 1.3rem; color: #d35400; font-weight: bold; }
+.full-name { font-size: 0.8rem; color: #e67e22; word-break: break-all; display: block; padding: 10px; }
+
+.spacer-large { height: 100vh; } 
+
+input[type="number"] {
+    width: 90%; padding: 15px; font-size: 1.4rem; text-align: center;
+    border: 3px solid var(--secondary-color); border-radius: 15px; margin-bottom: 10px;
+    background: white;
+}
+
+button {
+    border: none; border-radius: 50px; padding: 18px;
+    font-size: 1.1rem; font-weight: bold; cursor: pointer;
+    width: 95%; margin: 10px 0;
+}
+.primary-btn { background: var(--secondary-color); color: white; }
+.check-btn { background: #ff6b6b; color: white; }
+.map-btn { background: #3498db; color: white; border-bottom: 4px solid #2980b9; }
+
+.earned-score { font-size: 3.5rem; color: #ff9f43; font-weight: bold; }
+.final-score { font-size: 4.5rem; color: #ff6b6b; font-weight: bold; margin: 10px 0; }
+
+.prize-table { width: 100%; margin-top: 20px; background: rgba(255, 252, 245, 0.9); border-radius: 15px; border: 2px solid #ffcc80;}
+.prize-table table { width: 100%; border-collapse: collapse; }
+.prize-table td, .prize-table th { border-bottom: 1px solid #ffcc80; padding: 15px 10px; text-align: center; font-size: 0.9rem;}
+.rank-gold { background-color: rgba(255, 249, 196, 0.8); font-weight: bold; }
